@@ -14,4 +14,8 @@
     const nextSong = album.songs[nextSongIndex];
     player.playPause(nextSong);
   });
+
+  setInterval( () => {
+    if (player.playState !== 'playing') { return; }
+  }, 1000);
 }
