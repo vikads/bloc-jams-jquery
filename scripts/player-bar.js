@@ -15,6 +15,10 @@
     player.playPause(nextSong);
   });
 
+    $('#time-control input').on('input', function (event) {
+      player.skipTo(event.target.value);
+    });
+
   setInterval( () => {
     if (player.playState !== 'playing') { return; }
     const currentTime = player.getTime();
