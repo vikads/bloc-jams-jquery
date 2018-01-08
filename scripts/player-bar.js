@@ -9,9 +9,19 @@
 
     const currentSongIndex = album.songs.indexOf(player.currentlyPlaying);
     const nextSongIndex = currentSongIndex + 1;
-    if (nextSongIndex >=album.songs.length) { return; }
+    if (nextSongIndex >= album.songs.length) { return; }
 
     const nextSong = album.songs[nextSongIndex];
     player.playPause(nextSong);
+  });
+
+  $('button#previous').on('click', function() {
+    if(player.playSate !== 'playing') { return; }
+
+    const previousSongIndex = currentSongIndex - 1;
+    if (previousSongIndex === 0) { return; } /// tu powinien byc index pierwszej piisenki na liscie czyli [0]
+
+    const previousSong = album.songs[previousSongIndex];
+    player.playPause(previousSong);
   });
 }
